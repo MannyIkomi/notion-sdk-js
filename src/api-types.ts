@@ -65,9 +65,9 @@ export interface CodeBlock extends BlockBase {
   type: "code"
   code: {
     text: RichText[]
+    language: string
   }
   has_children: false
-  lang: string
 }
 
 export interface ParagraphBlock extends BlockBase {
