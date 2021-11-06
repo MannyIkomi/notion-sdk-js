@@ -62,6 +62,7 @@ export type Block =
   | FileBlock
   | PDFBlock
   | AudioBlock
+  | CodeBlock
   | UnsupportedBlock
 
 export interface BlockBase {
@@ -72,6 +73,15 @@ export interface BlockBase {
   last_edited_time: string
   has_children: boolean
   archived: boolean
+}
+
+export interface CodeBlock extends BlockBase {
+  type: "code"
+  code: {
+    text: RichText[]
+    language: string
+  }
+  has_children: false
 }
 
 export interface ParagraphBlock extends BlockBase {
