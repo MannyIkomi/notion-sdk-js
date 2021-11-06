@@ -49,6 +49,7 @@ export type Block =
   | ToDoBlock
   | ToggleBlock
   | ChildPageBlock
+  | CodeBlock
   | UnsupportedBlock
 
 export interface BlockBase {
@@ -58,6 +59,15 @@ export interface BlockBase {
   created_time: string
   last_edited_time: string
   has_children: boolean
+}
+
+export interface CodeBlock extends BlockBase {
+  type: "code"
+  code: {
+    text: RichText[]
+  }
+  has_children: false
+  lang: string
 }
 
 export interface ParagraphBlock extends BlockBase {
